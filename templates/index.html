@@ -1,0 +1,36 @@
+<h1> Testing again! </h1>
+
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+
+<h3> Applicants:</h3>
+            <table class="table table-hover table-bordered table-striped">
+                {% for a in our_applicants %}
+                <tr>
+                <td>{{ a.id }}. - {{ a.first_name }} - {{ a.last_name }}</a> - {{ a.job }} - {{ a.email }} </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+           
+        </p>
+
+
+<form method="POST">
+     
+    {{ form.hidden_tag() }}
+
+    {{ form.first_name(class="form-control w-50 p-2 center-form", placeholder="First Name") }}
+    <br>
+    {{ form.last_name(class="form-control w-50 p-2 center-form", placeholder="Last Name") }}
+    <br>
+    {{ form.job(class="form-control w-50 p-2 center-form", placeholder="Job") }}
+    <br>
+    {{ form.email(class="form-control w-50 p-2 center-form", rows=5, placeholder="Email)") }}
+    <br>
+    {{ form.submit(class="btn btn-secondary") }}
+</form>
